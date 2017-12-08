@@ -1,0 +1,397 @@
+/* ------------------------------------------
+  Responsive Nav
+--------------------------------------------- */
+$menu-trigger-icon-color: tomato !default;
+$nav-link-bg: $site-header-bg !default;
+
+.nav-bar {
+  @include clearfix;
+}
+
+// base styles
+.nav-collapse ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: block;
+  list-style: none;
+}
+
+.nav-collapse li {
+  width: 100%;
+  display: block;
+  margin: 0;
+}
+
+.js .nav-collapse {
+  clip: rect(0 0 0 0);
+  max-height: 0;
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  zoom: 1;
+}
+
+.nav-collapse.opened {
+  max-height: 9999px;
+}
+
+.nav-toggle {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.15);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+@media screen and (min-width: 40em) {
+  .js .nav-collapse {
+    position: relative;
+  }
+  .js .nav-collapse.closed {
+    max-height: none;
+  }
+  .nav-toggle {
+    display: none;
+  }
+}
+
+
+
+
+
+.nav-collapse,
+.nav-collapse * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-collapse {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.nav-collapse,
+.nav-collapse ul {
+  list-style: none;
+  width: 100%;
+  float: left;
+}
+
+@media screen and (min-width: 40em) {
+  .nav-collapse {
+    width: auto;
+    float: right;
+  }
+}
+
+.nav-collapse li {
+  float: left;
+  width: 100%;
+}
+
+@media screen and (min-width: 40em) {
+  .nav-collapse li {
+    width: auto;
+  }
+}
+
+.nav-collapse a {
+  border-bottom: 1px solid rgba(255,255,255, .15);
+  float: left;
+  padding: 0.9em 1.1em;
+  text-decoration: none;
+  width: 100%;
+}
+
+@media screen and (min-width: 40em) {
+  .nav-collapse a {
+    border-bottom: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 1em 1.5em;
+    margin: 0;
+    float: left;
+    text-align: center;
+  }
+  .nav-collapse li:first-child a {
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+
+/* ------------------------------------------
+  NAV TOGGLE STYLES
+--------------------------------------------- */
+
+// button styles should be reset if desired
+.nav-toggle {
+  position: relative;
+  float: right;
+  cursor: pointer;
+  padding: 1em 0;
+  z-index: 900;
+  background-color: transparent;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	text-decoration: none;
+	margin-right: 5%;
+
+    @include transition(all .2s ease-in-out);
+
+	border: 0;
+}
+
+// hamburger lines
+.nav-toggle .menu-trigger-icon {
+    display: block;
+    position: relative;
+    background-color: $menu-trigger-icon-color;
+    height: 3px;
+    width: 2em
+}
+.nav-toggle .menu-trigger-icon,
+.nav-toggle .menu-trigger-icon:before,
+.nav-toggle .menu-trigger-icon:after {
+    @include transition(all 0.2s ease-in-out);
+    border-radius: 1px
+}
+.nav-toggle .menu-trigger-icon:before,
+.nav-toggle .menu-trigger-icon:after {
+    background-color: $menu-trigger-icon-color;
+    content: '';
+    display: inline-block;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 2em
+}
+.nav-toggle .menu-trigger-icon:before {
+    top: 6px
+}
+.nav-toggle .menu-trigger-icon:after {
+    top: -6px
+}
+
+.nav-toggle.active .menu-trigger-icon:before,
+.nav-toggle.active .menu-trigger-icon:after {
+    top: 0
+}
+.nav-toggle.active .menu-trigger-icon:before {
+    @include rotate(45deg)
+}
+.nav-toggle.active .menu-trigger-icon:after {
+    @include rotate(-45deg)
+}
+
+
+
+/* ------------------------------------------
+  MULTIPLE LEVELS
+--------------------------------------------- */
+
+.nav-collapse a:hover,
+.nav-collapse li.focus > a {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 39.999em) {
+	
+  .js .nav-collapse {
+    visibility: hidden;
+  }
+  .js .nav-collapse.opened {
+    visibility: visible;
+  }
+
+  /* Enable active class to let the navigation expand over the calculated max height. */
+  .js .nav-collapse.multiple-level-nav.opened.dropdown-active {
+    max-height: 9999px !important;
+  }
+
+  .js .nav-collapse.multiple-level-nav .sub-menu {
+    clip: rect(0 0 0 0);
+    max-height: 0;
+    position: absolute;
+    display: none; /* This way you don't have focus on sub menu items unless you open the sub menu. Prevents transition animation though. */
+    overflow: hidden;
+	zoom: 1;
+  }
+
+  .js .nav-collapse.multiple-level-nav .sub-menu.toggled {
+    display: block;
+    max-height: 9999px;
+    position: relative;
+  }
+
+  .js .nav-collapse li {
+    position: relative;
+  }
+
+  .js .nav-collapse .dropdown-toggle {
+    border: 0; // reset button style
+    content: "";
+    height: 46px;
+    width: 46px;
+    padding: 0;
+    position: absolute;
+    margin: 0;
+    text-transform: lowercase;
+    top: 0;
+    right: 5px;
+  }
+  .js .nav-collapse .dropdown-toggle:hover,
+  .js .nav-collapse .dropdown-toggle:focus,
+  .js .nav-collapse .dropdown-toggle:active  {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .js .nav-collapse .dropdown-toggle:after {
+    content: "+";
+    font-size: 20px;
+  }
+  .js .nav-collapse .dropdown-toggle.toggled:after {
+    content: "-";
+  }
+  
+}
+  
+@media screen and (min-width: 40em) {
+  .dropdown-toggle  {
+    display: none;
+  }
+
+}
+
+.dropdown ul li {
+  background-color: $site-header-bg;
+}
+.dropdown ul a {
+  padding-left: 1.5em;
+}
+.dropdown ul ul {
+  border: 0;
+  padding: 0;
+}
+.dropdown ul ul a {
+  padding-left: 2.5em;
+}
+
+
+
+.dropdown .dropdown.opened .has-dropdown {
+  background: #9c2c12;
+}
+
+@media screen and (min-width: 40em) {
+
+  .nav-collapse {
+    padding-right: 4%;
+	position: relative;
+  }
+
+  .js .nav-collapse,
+  .js .nav-collapse .dropdown ul {
+    max-height: none;
+    overflow: visible;
+  }
+  
+  // disclosure arrows
+  .has-dropdown:after {
+    font-size: 1.5em;
+    line-height: 0.8;
+    float: right;
+    content: "";
+    width: 0;
+    height: 0;
+    margin: 1em 0 0 0.5em;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+  }
+  .dropdown ul .has-dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    margin: 0.3em 0 0 0.5em;
+    border-bottom: 6px solid transparent;
+    border-top: 6px solid transparent;
+    border-left: 6px solid #fff;
+  }
+
+  .nav-collapse .dropdown {
+    position: relative;
+  }
+  .nav-collapse .dropdown li {
+    width: 100%;
+  }
+  .nav-collapse .dropdown ul a {
+    text-align: left;
+    border: 0;
+  }
+  
+  .nav-collapse li {
+    border: 0;
+    display: inline-block;
+    height: 55px;
+    line-height: 55px;
+    position: relative;
+  }
+
+  .nav-collapse a {
+    display: inline-block;
+    padding: 0 16px;
+  }
+
+  .nav-collapse ul ul {
+    float: left;
+    margin: 0;
+    position: absolute;
+    top: 54px;
+    left: -999em;
+    z-index: 99999;
+    text-align: center;
+  }
+
+  .nav-collapse li li {
+    border: 0;
+    display: block;
+    height: auto;
+  }
+
+  .nav-collapse ul ul a {
+    padding: 0.5em;
+    white-space: normal;
+    max-width: 150px;
+    background: $nav-link-bg;
+  }
+
+  .nav-collapse ul li:hover > ul,
+  .nav-collapse ul li.focus > ul {
+    left: 0;
+  }
+
+  // 2nd level 'flyouts', ugh
+  .nav-collapse ul ul ul {
+    left: -999em;
+    top: 20px;
+  }
+  .nav-collapse ul ul li:hover > ul,
+  .nav-collapse ul ul li.focus > ul {
+    top: 0;
+    left: 0%;
+    margin-left: 150px;
+  }
+  
+}

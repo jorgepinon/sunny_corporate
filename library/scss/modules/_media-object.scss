@@ -1,0 +1,56 @@
+/*
+ * all media object styles should give credit to 
+ * Nicole Sullivan, aka @stubornella: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
+ *
+ * there are several ways to do this. This one uses floats. For vertical centering, use vertical-centering module. 
+ */
+
+$media-img-width: $thumbnail-width !default;
+$media-orientation-breakpoint: 480px !default;
+
+/* usage:
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" src="..." alt="description">
+            </a>
+        </div>
+        <div class="media-body">
+            <h3 class="media-heading">.media-heading</h3>
+            ... markup ...
+        </div>
+    </div>
+*/
+
+.media {
+    margin: 0 auto 1em;
+}
+.media-left {
+	 text-align: center;
+	 margin-bottom: 1em;
+ }
+.media-object {
+	max-width: 100%;
+}
+
+
+/*
+* horizontal orientation begins depends on your image size, etc.
+*/
+@media (min-width: $media-orientation-breakpoint) {
+
+    .media {
+		@include clearfix;
+    }
+    .media-left {
+		float: left;
+        width: $media-img-width; // force img size
+	}
+    .media-body {
+		padding-left: calc(#{$media-img-width} + 1em);
+    }
+    .media-heading {
+        margin-top: 0;
+    }
+
+}

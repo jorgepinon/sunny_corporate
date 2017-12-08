@@ -1,0 +1,135 @@
+/******************************************************************
+Site Name: SunnyCorporation.com
+Author: Jorge Piñon
+
+Stylesheet: Mixins Stylesheet
+
+******************************************************************/
+
+
+/*********************
+TRANSITION
+*********************/
+
+/*
+usage: @include transition(all 0.2s ease-in-out);
+*/
+@mixin transition($transition...) {
+  // defining prefixes so we can use them in mixins below
+  $prefixes:      ("-webkit-", "" );
+  @each $prefix in $prefixes {
+    #{$prefix}transition: $transition;
+  }
+}
+
+@mixin transform($transforms) {
+  $prefixes:      ("-webkit-", "" );
+  @each $prefix in $prefixes {
+    #{$prefix}transform: $transforms;
+  }
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+// scale
+@mixin scale($scale) {
+	 @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+
+
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/*********************
+BOX SIZING
+*********************/
+
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	-ms-box-sizing:     $type;
+	box-sizing:         $type;
+}
+
+
+
+@mixin clearfix {
+	*zoom : 1;
+	&:before,
+	&:after {
+	display: table;
+	content : ""; }
+	&:after {
+	clear : both; } }
+
+.clearfix {
+	@include clearfix;
+}
+
+// Hide from visual and speaking browsers
+@mixin hidden() {
+	display : none !important;
+	visibility : hidden;
+}
+
+// Hide but maintain layout
+@mixin invisible() {
+	visibility : hidden;
+}
+
+// Hidden but available to speaking browsers
+@mixin visuallyhidden() {
+	overflow : hidden;
+	position : absolute;
+	clip : rect(0 0 0 0);
+	height : 1px;
+	width : 1px;
+	margin : -1px;
+	padding : 0;
+	border : 0;
+	// Make visuallyhidden focusable with a keyboard
+
+	&.focusable {
+		&:active,
+		&:focus {
+			position : static;
+			clip : auto;
+			height : auto;
+			width : auto;
+			margin : 0;
+			overflow: visible;
+		}
+	}
+}
+
+// remove visuallyhidden styles
+@mixin visible() {
+	overflow : visible;
+	position : static;
+	clip : auto;
+	height : auto;
+	width : auto;
+	margin : 0;
+}
+

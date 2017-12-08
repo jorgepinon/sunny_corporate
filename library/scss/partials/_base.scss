@@ -1,0 +1,105 @@
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+html {
+	-webkit-overflow-scrolling: touch;
+	-webkit-tap-highlight-color: lighten($body-color, 75%);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	font-size: $handheld-base-font-size;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: $body-bg;
+	font-family: $base-font;
+	font-size: 100%;
+	line-height: 1.5;
+	color: $body-color;
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+	html {
+		font-size: $tablet-base-font-size;
+	}
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+	html {
+		font-size: $desktop-base-font-size;
+	}
+}
+
+
+//   =LINKS   ==================================================
+a {
+	text-decoration: none;
+	color: $link-color;
+
+	&:visited {
+		color: $link-color-visited;
+	}
+
+	&:hover {
+		text-decoration: underline;
+		color: $link-color-hover;
+	}
+
+	&:focus {
+		outline: thin dotted;
+		color: $link-color-focus;
+	}
+
+	&:hover,
+		&:active {
+		outline: 0;
+	}
+
+	.chevron--right, .chevron--left {
+		fill: $link-color;
+	}
+}
+
+// my preference is that *all* links should be padded
+.link--padded {
+	padding: 12px 0;
+	white-space: nowrap;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+}
+
+.link--icon {
+	width: 24px;
+}
+
+.link--add, .link--add:visited {
+	color: $success-bg;
+}
+.link--delete, .link--delete:visited {
+	color: $error-bg;
+}
+
+::-moz-selection {
+	background-color: $light-grey;
+	color: $page-color;
+	text-shadow: none;
+}
+::selection {
+	background-color: $light-grey;
+	color: $page-color;
+	text-shadow: none;
+}
+
+:hover:after, a:hover:before {
+	opacity: 1;
+}

@@ -1,0 +1,16 @@
+//  sticky footer
+//  ---------------------
+
+body {
+	display: table;
+	width: 100%;
+}
+.page-container {
+	position: relative;
+	display: table-row-group;
+}
+
+footer[role="contentinfo"] {
+	position: relative;
+	display: table-footer-group;
+}

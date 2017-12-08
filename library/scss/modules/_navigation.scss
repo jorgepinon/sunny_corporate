@@ -1,0 +1,30 @@
+//vars
+$nav-link-padding: .5em 1em !default;
+
+nav, %nav {
+	@include clearfix;
+
+	> a {
+		text-align: left;
+		display: inline-block;
+		padding: $nav-link-padding;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.nav--stacked {
+	> a {
+		display: block;
+	}
+}
+
+.nav--block {
+	> a {
+		background-color: #EAF2BE;
+		color: #333;
+	}
+}

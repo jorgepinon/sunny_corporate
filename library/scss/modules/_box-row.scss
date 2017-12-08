@@ -1,0 +1,42 @@
+/* ------------------------------------------
+  Box Row
+  used for features
+--------------------------------------------- */
+.box-row {
+    @include clearfix();
+}
+.box-row-item {
+    text-align: center;
+}
+.box-row-item::before {
+    content: "";
+    width: 1px;
+    margin-left: -1px;
+    float: left;
+    height: 0;
+    padding-top: 100%;
+}
+.box-row-item::after { /* to clear float */
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.box-row-item-content {
+    padding: 1em;
+}
+
+@media (min-width: $breakpoint-medium) {
+
+    .box-row-item {
+        float: left;
+        width: 32%; // this assumes 3 boxes in a row
+        margin-left: 1%;
+        text-align: center;
+    }
+
+    .box-row-item:first-child {
+        margin-left: 0;
+    }
+
+}

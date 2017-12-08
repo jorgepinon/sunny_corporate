@@ -1,0 +1,31 @@
+{
+  "name": "sunny_corporate",
+  "version": "1.0.0",
+  "description": "Wordpress theme for corporate sites, based on Bones",
+  "main": "./library/src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle-js": "cat ./library/src/vendor/*.js ./library/src/main.js > ./library/js/bundle.js",
+    "bundle-js-min": "uglify ./library/js/bundle.js -o ./library/js/bundle.min.js",
+    "lint-main": "eslint ./library/src/main.js",
+    "main-ready": "cp ./library/src/main.js ./library/js/",
+    "build:mainjs": "npm run lint-main && npm run main-ready",
+    "watch-js": "watch-run -p './library/src/**' npm run bundle-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorgepinon/sunny_corporate.git"
+  },
+  "keywords": [
+    "Wordpress"
+  ],
+  "author": "Jorge Piñon",
+  "license": "MIT",
+  "homepage": "https://github.com/jorgepinon/sunny_corporate.git#readme",
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "uglify-js": "^3.2.1",
+    "watch-run": "^1.2.5"
+  },
+  "dependencies": {}
+}

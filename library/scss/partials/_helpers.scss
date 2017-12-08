@@ -1,0 +1,44 @@
+$menu-scrollbar-color : rgba(225,20,0,0.8) !default;
+
+%clearfix {
+	@include clearfix;
+}
+
+.pull--left {
+	float: left;
+}
+.pull--right {
+	float: right;
+}
+
+.help--block {
+	display: block;
+	margin-bottom: 0.5em;
+}
+.help--inline {
+	display: inline-block;
+	margin-right: 0.5em;
+	margin-left: 0.5em;
+	vertical-align: middle;
+}
+
+.img--responsive {
+	max-width: 100%;
+}
+.text--centered {
+	text-align: center;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
+// Hide only visually: h5bp.com/v
+.visuallyhidden {
+	@include visuallyhidden;
+}
+// Hide visually and from screenreaders, but maintain layout
+.invisible {
+	visibility: hidden;
+}

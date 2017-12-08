@@ -1,0 +1,86 @@
+/* Variables =================================================== */
+
+// type
+$base-font : 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$custom-font : 'Source Sans Pro', sans-serif;;
+$base-font-size : 14px;
+$base-line-height : 1.6;
+$base-heading-font : inherit;
+$base-heading-font-weight : bold;
+$base-heading-color : inherit;
+
+
+// globals
+$tap-height : 42px;
+
+$handheld-base-font-size	: $base-font-size;
+$tablet-base-font-size		: 16px;
+$desktop-base-font-size		: 18px;
+
+$baseline : $base-line-height;
+$gutterwidth : 20px;
+
+$border-radius		: 3px;
+
+$custom-timing-function 	: cubic-bezier(0, .76, .41, 1.05);
+
+
+// compass defaults
+$default-border-radius: $border-radius;
+
+
+
+// palette
+$black 			: #111;
+$dark-grey 		: #303238;
+$text			: $dark-grey;
+$grey 			: #555963;
+$light-grey 	: #d2d2d2;
+$white 			: #fafafa;
+
+$body-bg 			: $white;
+$body-color 		: $text;
+$text-color			: $text;
+$page-bg 			: $body-bg;
+$page-color 		: $body-color;
+$panel-bg			: $body-bg;
+$panel-color		: $body-color;
+$primary-color		: #739D2F;
+$secondary-color	: #B53D19;
+$border-color    	: $light-grey;
+$border-width    	: 1px;
+$border-style   	: solid;
+$overlay-bg			: rgb(23,20,43);
+$overlay-color		: $light-grey;
+
+$link-color 			: tomato;
+$link-color-hover 		: lighten($link-color, 10);
+$link-color-visited		: darken($link-color-hover, 10);
+$link-color-focus 		: darken($link-color-visited, 10);
+$link-hover				: darken($link-color, 9%);
+
+$alert-bg 		: #dae5e5;
+$error-bg 		: #d00;
+$inverse-bg 	: rgb(65,65,65);
+$success-bg 	: rgb(166,220,60);
+$warning-bg 	: rgb(237,218,107);
+$success-color	: green;
+$error-color	: tomato;
+
+
+// navs
+$nav-link-padding: .5em 1em;
+
+$thumbnail-width: 150px;
+
+//breakpoints
+$tablet					: 768px;
+$desktop				: 1024px!default;
+$desktop-large			: 1200px!default;
+
+$breakpoint-xs			: 480px !default; 	// 480/14 = 34.2857143em
+$breakpoint-small		: 600px !default; 	// 600/14 = 42.8571429em
+$breakpoint-medium		: 768px !default; 	// 768/16 = 48em
+$breakpoint-large		: 1024px !default; 	// 1024//16 = 64em
+$breakpoint-xl			: 1280px !default; 	// 1280/16 = 80em
+$breakpoint-xxl			: 1920px !default; 	// 1920/16 = 120em

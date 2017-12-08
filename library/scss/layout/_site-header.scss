@@ -1,0 +1,71 @@
+$menu-trigger-icon-color: #333;
+$site-header-color: $body-color;
+$site-header-bg: $body-bg;
+
+
+.header-container {
+    display: table;
+    position: relative;
+    clear: both;
+    width: 100%;
+
+    // no one puts header-container in a corner
+    // since it contains the main nav
+    z-index: 900; 
+}
+
+.site-header {
+    display: table;
+    position: relative;
+    clear: both;
+    float: none;
+    width: 100%;
+    z-index: 1;
+    padding: 1em 0;
+    color: $site-header-color;
+    background: $site-header-bg;
+}
+
+// demo logo svg paths
+#logo {
+    .logo-rectangle {
+        fill: rgba(0, 0, 0, 0.5);
+    }
+    .logo-circle {
+        fill: rgba(0, 0, 0, 0.2);
+    }
+    .logo-diamond {
+        fill: rgba(0, 0, 0, 0.05);
+    }
+}
+
+
+/* Adjust widths as necessary to align with nav items */
+.site-header .logo {
+    float: left;
+    width: 30%;
+    max-width: 160px;
+    padding: 0 1em;
+
+    svg,
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+/* fixed state */
+.header-container.fixed {
+    display: none;
+    position: fixed
+}
+.header-container.fixed .site-header {
+    background-color: #fff;
+    box-shadow: 0 0 1rem rgba(70, 132, 151, 0.05);
+    padding: 1rem 0
+}
+.header-container.fixed .site-header .logo {
+    color: #8ACBE1
+}
+

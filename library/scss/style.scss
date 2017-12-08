@@ -1,0 +1,48 @@
+/*! Made with Bones: http://themble.com/bones :) */
+
+/******************************************************************
+Site Name: SunnyCorporation.com
+Author: Jorge Piñon
+
+Stylesheet: Main Stylesheet
+******************************************************************/
+
+// normalize: http://necolas.github.io/normalize.css/
+@import "partials/normalize";
+@import "partials/variables";
+@import "partials/typography";
+@import "partials/functions";
+@import "partials/mixins";
+@import "partials/helpers";
+
+@import "partials/base";
+
+@import "layout/breakpoints";
+@import "layout/containers";
+@import "layout/grid";
+@import "layout/site-header";
+@import "layout/sticky-footer";
+@import "layout/footer";
+
+@import "modules/button";
+@import "modules/media-object";
+@import "modules/tile";
+@import "modules/box-row";
+@import "modules/hero";
+@import "modules/responsive-nav";
+@import "modules/carousel";
+@import "modules/calendar-date-icon";
+
+
+/*********************
+PRINT STYLESHEET
+Feel free to customize this. Remember to add things that won't make
+sense to print at the bottom. Things like nav, ads, and forms should
+be set to display none.
+*********************/
+@media print {
+
+	// styles in print.scss
+	@import "partials/print";
+
+}

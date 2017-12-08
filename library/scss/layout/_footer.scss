@@ -1,0 +1,18 @@
+/*
+ * Site footer
+ */
+
+$footer-bg:  transparent;
+$footer-color:  $grey;
+
+
+footer[role="contentinfo"] {
+	position: relative;
+	background-color: $footer-bg;
+	color: $footer-color;
+
+	.footer-content {
+		padding: 2em 0;
+	}
+}
+

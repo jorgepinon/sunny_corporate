@@ -1,0 +1,82 @@
+/**
+ * Slider specific styles
+ */
+
+.slider {
+    position: relative;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.frame {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.slides {
+	display: inline-block;
+	margin: 0; padding: 0;
+	width: 100%;
+}
+
+.slides li {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	min-height: 240px;
+	padding: 3em;
+	background: $dark-grey;
+	color: #fff;
+}
+.slides li:last-child {
+    margin-right: 0;
+}
+
+
+.slider .prev, .slider .next {
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    display: block;
+    cursor: pointer;
+}
+
+.slider .next {
+    right: 0;
+}
+.slider .prev {
+    left: 0;
+}
+
+.slider .next.disabled,
+.slider .prev.disabled {
+    opacity: .3;
+    pointer-events: none;
+}
+
+.slider .next svg, 
+.slider .prev svg {
+    width: 25px;
+    transition: .4s;
+}
+
+.slider .next svg:hover, 
+.slider .prev svg:hover {
+    transform: scale(1.1);
+}
+
+
+@media screen and (min-width: 640px ) {
+
+
+}
+
+@media screen and (min-width: 980px ) {
+
+
+}

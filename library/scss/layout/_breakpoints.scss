@@ -1,0 +1,58 @@
+$constrained-width: 1280px !default;
+
+
+// layout-specific classes start with l-
+.l-constrained {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: $constrained-width;
+}
+
+.l-max1280 { max-width: 1280px; }
+.l-max1024 { max-width: 1024px; }
+.l-max800 { max-width: 800px; }
+.l-max720 { max-width: 720px; }
+.l-max600 { max-width: 600px; }
+
+
+// v- classes control visibility at certain breakpoints
+.v-min600, .v-min768, .v-min800, .v-min1024 {
+
+	@include visuallyhidden();
+
+}
+
+// 600px
+@media screen and (min-width: $breakpoint-xs) {
+
+	.v-max600 { display: none; }
+	.v-min600 { @include visible(); }
+
+}
+
+@media screen and (min-width: $breakpoint-small) {
+
+	.v-max767 { display: none; }
+	.v-min768 { @include visible(); }
+
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+
+	.v-max799 { display: none; }
+	.v-min800 { @include visible(); }
+
+}
+
+@media screen and (min-width: $breakpoint-large) {
+
+	.v-max1023 {display: none; }
+	.v-min1024 {display: block; @include visible(); }
+
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+
+	.v-max1279 {display: none; }
+
+}

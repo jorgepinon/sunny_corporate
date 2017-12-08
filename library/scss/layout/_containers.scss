@@ -1,0 +1,59 @@
+////////////////////////////////////
+// CONTAINERS
+////////////////////////////////////
+
+// default variables
+
+$page-border-right	: 0 !default;
+$page-border-left	: 0 !default;
+
+// pg-container pseudo-class is an alternate hook for js if needed
+#pg-container:after {
+	content: "lt600";
+	display: none;
+}
+
+.container {
+	@include clearfix();
+	position: relative;
+	width: auto;
+	padding-bottom: 2rem;
+	border-right: $page-border-right;
+	border-left: $page-border-left;
+	background-color: $page-bg;
+	color: $page-color;
+}
+
+.whitespaced {
+	padding: 3em 0;
+}
+@media screen and (min-width: $breakpoint-small) {
+	.whitespaced {
+		padding: 4em 0;
+	}
+}
+
+@media screen and (min-width: $breakpoint-xs) {
+	#pg-container:after {
+		content: "gt600";
+	}
+}
+
+
+@media screen and (min-width: $breakpoint-small) {
+
+	#pg-container:after {
+		content: "gt768";
+	}
+
+	.container:before, .container:after {
+		line-height: 0;
+	}
+
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+	#pg-container:after {
+		content: "gt1280";
+	}
+}

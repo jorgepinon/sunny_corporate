@@ -1,0 +1,199 @@
+/*
+  Carousel
+  Credit to W3C/WAI: https://www.w3.org/WAI/tutorials/carousels/ 
+  Requires accessible-carousel.js
+*/
+
+$slide-height-sm: 360px;
+$slide-height-lg: 420px;
+
+.carousel, .slide {
+  padding:0;
+  margin: 0;
+  overflow: hidden;
+}
+.carousel {
+  position: relative;
+}
+.carousel ul {
+  margin:0;
+  padding: 0;
+}
+.slide {
+  display: table;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  margin-bottom:1em;
+}
+
+.slide-content {
+  display: table-cell;
+  padding: 60px;
+  vertical-align: middle;
+}
+.slide-title {
+  font-size: 3em;
+  margin: 0;
+}
+
+/* 
+  start animation-related styles when we know js is active 
+*/
+.carousel.js {
+  height: $slide-height-sm;
+  position:relative;
+  background-color: $dark-grey;
+  color: $white;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  
+  a, a:visited {
+    color: tomato;
+  }
+}
+
+.js .slide {
+  display: table !important;
+  visibility: hidden;
+
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $slide-height-lg;
+  z-index: 200;
+
+  transition: left .6s ease-out;
+}
+
+.js .slide.current {
+  visibility: visible;
+  left: 0;
+}
+
+.js .slide.next {
+  left: 100%;
+}
+
+.js .slide.prev {
+  left: -100%;
+}
+
+.js .slide.next.in-transition,
+.js .slide.prev.in-transition {
+  visibility:visible;
+}
+
+.slide.current {
+  display:block;
+  z-index: 210;
+}
+
+.btn-prev,
+.btn-next {
+  position:absolute;
+  z-index: 220;
+  transform: translateY(-50%);
+  top: 50%;
+  border: 0;
+  line-height: 1;
+  padding: 10px 5px;
+  background-color: transparent;
+  transition: padding .4s ease-out;
+}
+
+.btn-next:hover,
+.btn-next:focus,
+.btn-prev:hover,
+.btn-prev:focus {
+  padding-left: 15px;
+  padding-right:15px;
+}
+
+.btn-prev {
+  left: 0;
+}
+.btn-next {
+  right: 0;
+}
+
+.btn-prev svg,
+.btn-next svg {
+  width: 40px;
+}
+.btn-prev .nav-arrow,
+.btn-next .nav-arrow {
+  fill: none;
+  stroke: rgba(255,255,255, 0.6);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+
+/* 
+  set slidenav: true when initializing
+  for bottom labels indicating current slide 
+*/
+.carousel.with-slidenav {
+  padding-bottom: 2em;
+}
+
+.slidenav {
+  position: absolute;
+  bottom:.25em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 220;
+}
+
+.slidenav li {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+.slidenav .animation-control {
+  float: left;
+
+  button {
+    border: 0;
+  }
+}
+
+.slidenav button {
+  border: 0;
+  background-color: transparent;
+  line-height: 1em;
+  padding: 0.5em 0.75em;
+  border-radius: 2em;
+  width: auto;
+  color: #fff;
+  border: solid 1px rgba(255,255,255, 0.7);
+  opacity: 0.5;
+  @include transition(opacity 400ms ease-in);
+}
+
+.slidenav button.current {
+  opacity: 1;
+  border-color: #fff;
+}
+
+.slidenav button:hover,
+.slidenav button:focus {
+  outline: 1px dotted rgba(100,100,100,0.5);
+}
+
+.slidenav button.current:hover,
+.slidenav button.current:focus {
+  outline: 1px dotted rgba(100,100,100,0.5);
+}
+
+
+@media screen and (min-width: 768) {
+  .carousel.js, .js .slide {
+    height: $slide-height-lg;
+  }
+}

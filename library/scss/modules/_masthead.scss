@@ -1,0 +1,30 @@
+//   =MASTHEAD   ==================================================
+$masthead-bg		: #1C152D !default;
+$masthead-color		: #edf !default;
+$masthead-opacity	: 0.95 !default;
+
+.masthead {
+	position: relative;
+	z-index: 100;
+	padding: 1em;
+
+	background-color: $masthead-bg;
+	color: $masthead-color;
+	opacity: $masthead-opacity;
+
+	.logo {
+		margin: 0;
+		float: left;
+		width: 33%;
+		max-width: 160px;
+
+		a, a:visited {
+			display: block;
+
+			&:hover, &:active {
+				text-decoration: none;
+			}
+		}
+	}
+
+}
