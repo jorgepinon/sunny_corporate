@@ -204,8 +204,8 @@
 			<div class="row l-constrained">
 				<div class="small-12 small-centered large-10 column">
 					<label>Our Expertise</label>
-					<h2>Secure Private/Public Cloud Infrastructure and Data Centers</h2>
-					<a class="btn" href="/services">Services</a>
+					<h2>Callout feature heading</h2>
+					<a class="btn" href="#">Read more</a>
 				</div>
 			</div>
 		</div>
@@ -213,9 +213,9 @@
 		<div class="hero">
 			<div class="row l-constrained">
 				<div class="small-12 small-centered large-10 column">
-					<label>Basic Principles</label>
-					<h2>Reliability, efficiency, and security are what our clients expect.</h2>
-					<a class="btn" href="/clients">Clients and Case Stuides</a>
+					<label>They said it</label>
+					<h2>“I’ve never seen anything like it.”</h2>
+					<a class="btn" href="#">Testimonials</a>
 				</div>
 			</div>
 		</div>

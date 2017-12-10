@@ -88,14 +88,14 @@ blockquote {
 /* line 72, ../scss/partials/_typography.scss */
 blockquote footer {
   padding: 0.5em;
+  text-align: right;
 }
 
-/* line 76, ../scss/partials/_typography.scss */
+/* line 77, ../scss/partials/_typography.scss */
 cite {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.875em;
   font-style: normal;
-  color: #555963;
 }
 /* line 82, ../scss/partials/_typography.scss */
 cite:before {
@@ -158,13 +158,19 @@ h4, .delta {
 }
 
 /* line 131, ../scss/partials/_typography.scss */
+.callout-title {
+  font-size: 1.65em;
+  font-weight: 200;
+}
+
+/* line 136, ../scss/partials/_typography.scss */
 hr {
   margin: 1.5em 0;
   border: 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #fff;
 }
-/* line 137, ../scss/partials/_typography.scss */
+/* line 142, ../scss/partials/_typography.scss */
 hr.or:after {
   content: "or";
   display: inline-block;
@@ -176,7 +182,7 @@ hr.or:after {
   color: #777;
 }
 
-/* line 149, ../scss/partials/_typography.scss */
+/* line 154, ../scss/partials/_typography.scss */
 address {
   display: block;
   margin-bottom: 1em;
@@ -184,7 +190,7 @@ address {
   font-style: normal;
 }
 
-/* line 155, ../scss/partials/_typography.scss */
+/* line 160, ../scss/partials/_typography.scss */
 img {
   height: auto;
   border: 0;
@@ -192,7 +198,7 @@ img {
   vertical-align: middle;
 }
 
-/* line 162, ../scss/partials/_typography.scss */
+/* line 167, ../scss/partials/_typography.scss */
 pre {
   font-family: inherit;
   white-space: pre-wrap;

@@ -43,9 +43,9 @@ $site-header-bg: $body-bg;
 /* Adjust widths as necessary to align with nav items */
 .site-header .logo {
     float: left;
-    width: 30%;
-    max-width: 160px;
-    padding: 0 1em;
+    width: 60%;
+    max-width: 300px;
+    padding: 0 1em 0 0;
 
     svg,
     img {

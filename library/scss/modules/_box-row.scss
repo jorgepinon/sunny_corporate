@@ -4,8 +4,10 @@
 --------------------------------------------- */
 .box-row {
     @include clearfix();
+    margin-bottom: 1em;
 }
 .box-row-item {
+    border: solid 1px $border-color;
     text-align: center;
 }
 .box-row-item::before {

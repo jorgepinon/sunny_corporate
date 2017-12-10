@@ -53,6 +53,7 @@ temp/
 .Trashes
 node_modules
 .svn
+*.sass-cache
 
 *.codekit
 *.scssc

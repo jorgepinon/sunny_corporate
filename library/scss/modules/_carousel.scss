@@ -4,8 +4,10 @@
   Requires accessible-carousel.js
 */
 
-$slide-height-sm: 360px;
+$slide-height-sm: 380px;
 $slide-height-lg: 420px;
+$slide-bg: $body-color;
+$slide-color: $body-bg;
 
 .carousel, .slide {
   padding:0;
@@ -25,15 +27,18 @@ $slide-height-lg: 420px;
   background-size: cover;
   position: relative;
   margin-bottom:1em;
+  background-color: $slide-bg;
+  color: $slide-color;
 }
 
 .slide-content {
   display: table-cell;
-  padding: 60px;
+  padding: 30px 60px;
   vertical-align: middle;
 }
 .slide-title {
-  font-size: 3em;
+  font-size: 2.2em;
+  line-height: 1;
   margin: 0;
 }
 
@@ -43,15 +48,9 @@ $slide-height-lg: 420px;
 .carousel.js {
   height: $slide-height-sm;
   position:relative;
-  background-color: $dark-grey;
-  color: $white;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  
-  a, a:visited {
-    color: tomato;
-  }
 }
 
 .js .slide {
@@ -156,7 +155,8 @@ $slide-height-lg: 420px;
   margin: 0 0.5em;
 }
 .slidenav .animation-control {
-  float: left;
+  position: absolute;
+  left: 0;
 
   button {
     border: 0;
@@ -195,5 +195,9 @@ $slide-height-lg: 420px;
 @media screen and (min-width: 768) {
   .carousel.js, .js .slide {
     height: $slide-height-lg;
+  }
+
+  .slide-title {
+    font-size: 3em;
   }
 }

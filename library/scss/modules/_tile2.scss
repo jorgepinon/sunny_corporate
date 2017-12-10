@@ -1,0 +1,64 @@
+/* ------------------------------------------
+  Tiles
+  This assumes 4 in a row
+--------------------------------------------- */
+.tiles {
+    @include clearfix();
+}
+.tile {
+	display: block;
+	position: relative;
+	background-color: rgba(255,255,255, 0.2);
+	background-size: cover;
+	margin-bottom: 1em;
+	border-bottom: solid 1px lighten($link-color, 25);
+	@include transition(background-color 400ms ease-out);
+}
+.tile, 
+.tile:hover, 
+.tile:active {
+	outline: solid 1px lighten($link-color, 50);
+	text-decoration: none;
+}
+.tile:hover {
+	background-color: rgba(255,255,255, 0.5);
+}
+
+.tile-content {
+    padding: 1em;
+}
+.tile-title {
+	@extend .callout-title;
+	margin: 0;
+}
+.tile .subhead {
+	margin-bottom: 0.5em;
+}
+
+@media (min-width: $breakpoint-medium) {
+
+    .tile {
+        float: left;
+        width: 22%; // this assumes 3 boxes in a row
+        margin-left: 3%;
+    }
+
+	.tile::before {
+		content: "";
+		width: 1px;
+		margin-left: -1px;
+		float: left;
+		height: 0;
+		padding-top: 100%;
+	}
+	.tile::after { /* to clear float */
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	.tile:first-child {
+        margin-left: 0;
+    }
+
+}

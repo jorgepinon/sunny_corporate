@@ -5,8 +5,7 @@
  * there are several ways to do this. This one uses floats. For vertical centering, use vertical-centering module. 
  */
 
-$media-img-width: $thumbnail-width !default;
-$media-orientation-breakpoint: 480px !default;
+$media-left-max-width: $thumbnail-width !default;
 
 /* usage:
     <div class="media">
@@ -23,34 +22,20 @@ $media-orientation-breakpoint: 480px !default;
 */
 
 .media {
+		@include clearfix;
     margin: 0 auto 1em;
 }
 .media-left {
-	 text-align: center;
-	 margin-bottom: 1em;
+    float: left;
+    width: 25%;
+    max-width: $media-left-max-width; 
+    text-align: center;
+    margin-right: 1em;
+    margin-bottom: 1em;
  }
 .media-object {
 	max-width: 100%;
 }
-
-
-/*
-* horizontal orientation begins depends on your image size, etc.
-*/
-@media (min-width: $media-orientation-breakpoint) {
-
-    .media {
-		@include clearfix;
-    }
-    .media-left {
-		float: left;
-        width: $media-img-width; // force img size
-	}
-    .media-body {
-		padding-left: calc(#{$media-img-width} + 1em);
-    }
-    .media-heading {
-        margin-top: 0;
-    }
-
+.media-body {
+   	padding: 0.5em;
 }

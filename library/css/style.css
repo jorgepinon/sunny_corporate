@@ -595,14 +595,14 @@ blockquote {
 /* line 72, ../scss/partials/_typography.scss */
 blockquote footer {
   padding: 0.5em;
+  text-align: right;
 }
 
-/* line 76, ../scss/partials/_typography.scss */
+/* line 77, ../scss/partials/_typography.scss */
 cite {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.875em;
   font-style: normal;
-  color: #555963;
 }
 /* line 82, ../scss/partials/_typography.scss */
 cite:before {
@@ -665,13 +665,19 @@ h4, .delta {
 }
 
 /* line 131, ../scss/partials/_typography.scss */
+.callout-title {
+  font-size: 1.65em;
+  font-weight: 200;
+}
+
+/* line 136, ../scss/partials/_typography.scss */
 hr {
   margin: 1.5em 0;
   border: 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #fff;
 }
-/* line 137, ../scss/partials/_typography.scss */
+/* line 142, ../scss/partials/_typography.scss */
 hr.or:after {
   content: "or";
   display: inline-block;
@@ -683,7 +689,7 @@ hr.or:after {
   color: #777;
 }
 
-/* line 149, ../scss/partials/_typography.scss */
+/* line 154, ../scss/partials/_typography.scss */
 address {
   display: block;
   margin-bottom: 1em;
@@ -691,7 +697,7 @@ address {
   font-style: normal;
 }
 
-/* line 155, ../scss/partials/_typography.scss */
+/* line 160, ../scss/partials/_typography.scss */
 img {
   height: auto;
   border: 0;
@@ -699,7 +705,7 @@ img {
   vertical-align: middle;
 }
 
-/* line 162, ../scss/partials/_typography.scss */
+/* line 167, ../scss/partials/_typography.scss */
 pre {
   font-family: inherit;
   white-space: pre-wrap;
@@ -1555,9 +1561,9 @@ a .chevron--right, a .chevron--left {
 /* line 44, ../scss/layout/_site-header.scss */
 .site-header .logo {
   float: left;
-  width: 30%;
-  max-width: 160px;
-  padding: 0 1em;
+  width: 60%;
+  max-width: 300px;
+  padding: 0 1em 0 0;
 }
 /* line 50, ../scss/layout/_site-header.scss */
 .site-header .logo svg,
@@ -1609,7 +1615,7 @@ footer[role="contentinfo"] {
 /* line 9, ../scss/layout/_footer.scss */
 footer[role="contentinfo"] {
   position: relative;
-  background-color: transparent;
+  background-color: #111;
   color: #555963;
 }
 /* line 14, ../scss/layout/_footer.scss */
@@ -1703,56 +1709,41 @@ footer[role="contentinfo"] .footer-content {
         </div>
     </div>
 */
-/* line 25, ../scss/modules/_media-object.scss */
+/* line 24, ../scss/modules/_media-object.scss */
 .media {
+  *zoom: 1;
   margin: 0 auto 1em;
+}
+/* line 79, ../scss/partials/_mixins.scss */
+.media:before, .media:after {
+  display: table;
+  content: "";
+}
+/* line 83, ../scss/partials/_mixins.scss */
+.media:after {
+  clear: both;
 }
 
 /* line 28, ../scss/modules/_media-object.scss */
 .media-left {
+  float: left;
+  width: 25%;
+  max-width: 150px;
   text-align: center;
+  margin-right: 1em;
   margin-bottom: 1em;
 }
 
-/* line 32, ../scss/modules/_media-object.scss */
+/* line 36, ../scss/modules/_media-object.scss */
 .media-object {
   max-width: 100%;
 }
 
-/*
-* horizontal orientation begins depends on your image size, etc.
-*/
-@media (min-width: 480px) {
-  /* line 42, ../scss/modules/_media-object.scss */
-  .media {
-    *zoom: 1;
-  }
-  /* line 79, ../scss/partials/_mixins.scss */
-  .media:before, .media:after {
-    display: table;
-    content: "";
-  }
-  /* line 83, ../scss/partials/_mixins.scss */
-  .media:after {
-    clear: both;
-  }
-
-  /* line 45, ../scss/modules/_media-object.scss */
-  .media-left {
-    float: left;
-    width: 150px;
-  }
-
-  /* line 49, ../scss/modules/_media-object.scss */
-  .media-body {
-    padding-left: calc(150px + 1em);
-  }
-
-  /* line 52, ../scss/modules/_media-object.scss */
-  .media-heading {
-    margin-top: 0;
-  }
+/* line 39, ../scss/modules/_media-object.scss */
+.media-body {
+  padding: 0.5em;
 }
+
 /*  
   Module: tile
 */
@@ -1900,6 +1891,7 @@ footer[role="contentinfo"] .footer-content {
 /* line 5, ../scss/modules/_box-row.scss */
 .box-row {
   *zoom: 1;
+  margin-bottom: 1em;
 }
 /* line 79, ../scss/partials/_mixins.scss */
 .box-row:before, .box-row:after {
@@ -1911,12 +1903,13 @@ footer[role="contentinfo"] .footer-content {
   clear: both;
 }
 
-/* line 8, ../scss/modules/_box-row.scss */
+/* line 9, ../scss/modules/_box-row.scss */
 .box-row-item {
+  border: solid 1px #d2d2d2;
   text-align: center;
 }
 
-/* line 11, ../scss/modules/_box-row.scss */
+/* line 13, ../scss/modules/_box-row.scss */
 .box-row-item::before {
   content: "";
   width: 1px;
@@ -1926,7 +1919,7 @@ footer[role="contentinfo"] .footer-content {
   padding-top: 100%;
 }
 
-/* line 19, ../scss/modules/_box-row.scss */
+/* line 21, ../scss/modules/_box-row.scss */
 .box-row-item::after {
   /* to clear float */
   content: "";
@@ -1934,13 +1927,13 @@ footer[role="contentinfo"] .footer-content {
   clear: both;
 }
 
-/* line 25, ../scss/modules/_box-row.scss */
+/* line 27, ../scss/modules/_box-row.scss */
 .box-row-item-content {
   padding: 1em;
 }
 
 @media (min-width: 768px) {
-  /* line 31, ../scss/modules/_box-row.scss */
+  /* line 33, ../scss/modules/_box-row.scss */
   .box-row-item {
     float: left;
     width: 32%;
@@ -1948,7 +1941,7 @@ footer[role="contentinfo"] .footer-content {
     text-align: center;
   }
 
-  /* line 38, ../scss/modules/_box-row.scss */
+  /* line 40, ../scss/modules/_box-row.scss */
   .box-row-item:first-child {
     margin-left: 0;
   }
@@ -2303,46 +2296,51 @@ footer[role="contentinfo"] .footer-content {
   }
 }
 /* line 277, ../scss/modules/_responsive-nav.scss */
+.dropdown:hover {
+  border-top: solid 1px rgba(255, 255, 255, 0.4);
+}
+
+/* line 281, ../scss/modules/_responsive-nav.scss */
 .dropdown ul li {
   background-color: #fafafa;
 }
 
-/* line 280, ../scss/modules/_responsive-nav.scss */
+/* line 284, ../scss/modules/_responsive-nav.scss */
 .dropdown ul a {
   padding-left: 1.5em;
 }
 
-/* line 283, ../scss/modules/_responsive-nav.scss */
+/* line 287, ../scss/modules/_responsive-nav.scss */
 .dropdown ul ul {
   border: 0;
   padding: 0;
 }
 
-/* line 287, ../scss/modules/_responsive-nav.scss */
+/* line 291, ../scss/modules/_responsive-nav.scss */
 .dropdown ul ul a {
   padding-left: 2.5em;
 }
 
-/* line 293, ../scss/modules/_responsive-nav.scss */
+/* line 297, ../scss/modules/_responsive-nav.scss */
 .dropdown .dropdown.opened .has-dropdown {
   background: #9c2c12;
 }
 
 @media screen and (min-width: 40em) {
-  /* line 299, ../scss/modules/_responsive-nav.scss */
+  /* line 303, ../scss/modules/_responsive-nav.scss */
   .nav-collapse {
     padding-right: 4%;
     position: relative;
   }
 
-  /* line 304, ../scss/modules/_responsive-nav.scss */
+  /* line 308, ../scss/modules/_responsive-nav.scss */
   .js .nav-collapse,
   .js .nav-collapse .dropdown ul {
     max-height: none;
     overflow: visible;
   }
 
-  /* line 311, ../scss/modules/_responsive-nav.scss */
+  /* line 315, ../scss/modules/_responsive-nav.scss */
   .has-dropdown:after {
     font-size: 1.5em;
     line-height: 0.8;
@@ -2356,7 +2354,7 @@ footer[role="contentinfo"] .footer-content {
     border-top: 6px solid #fff;
   }
 
-  /* line 323, ../scss/modules/_responsive-nav.scss */
+  /* line 327, ../scss/modules/_responsive-nav.scss */
   .dropdown ul .has-dropdown:after {
     content: "";
     width: 0;
@@ -2367,23 +2365,23 @@ footer[role="contentinfo"] .footer-content {
     border-left: 6px solid #fff;
   }
 
-  /* line 333, ../scss/modules/_responsive-nav.scss */
+  /* line 337, ../scss/modules/_responsive-nav.scss */
   .nav-collapse .dropdown {
     position: relative;
   }
 
-  /* line 336, ../scss/modules/_responsive-nav.scss */
+  /* line 340, ../scss/modules/_responsive-nav.scss */
   .nav-collapse .dropdown li {
     width: 100%;
   }
 
-  /* line 339, ../scss/modules/_responsive-nav.scss */
+  /* line 343, ../scss/modules/_responsive-nav.scss */
   .nav-collapse .dropdown ul a {
     text-align: left;
     border: 0;
   }
 
-  /* line 344, ../scss/modules/_responsive-nav.scss */
+  /* line 348, ../scss/modules/_responsive-nav.scss */
   .nav-collapse li {
     border: 0;
     display: inline-block;
@@ -2392,13 +2390,13 @@ footer[role="contentinfo"] .footer-content {
     position: relative;
   }
 
-  /* line 352, ../scss/modules/_responsive-nav.scss */
+  /* line 356, ../scss/modules/_responsive-nav.scss */
   .nav-collapse a {
     display: inline-block;
     padding: 0 16px;
   }
 
-  /* line 357, ../scss/modules/_responsive-nav.scss */
+  /* line 361, ../scss/modules/_responsive-nav.scss */
   .nav-collapse ul ul {
     float: left;
     margin: 0;
@@ -2409,14 +2407,14 @@ footer[role="contentinfo"] .footer-content {
     text-align: center;
   }
 
-  /* line 367, ../scss/modules/_responsive-nav.scss */
+  /* line 371, ../scss/modules/_responsive-nav.scss */
   .nav-collapse li li {
     border: 0;
     display: block;
     height: auto;
   }
 
-  /* line 373, ../scss/modules/_responsive-nav.scss */
+  /* line 377, ../scss/modules/_responsive-nav.scss */
   .nav-collapse ul ul a {
     padding: 0.5em;
     white-space: normal;
@@ -2424,19 +2422,19 @@ footer[role="contentinfo"] .footer-content {
     background: #fafafa;
   }
 
-  /* line 380, ../scss/modules/_responsive-nav.scss */
+  /* line 384, ../scss/modules/_responsive-nav.scss */
   .nav-collapse ul li:hover > ul,
   .nav-collapse ul li.focus > ul {
     left: 0;
   }
 
-  /* line 386, ../scss/modules/_responsive-nav.scss */
+  /* line 390, ../scss/modules/_responsive-nav.scss */
   .nav-collapse ul ul ul {
     left: -999em;
     top: 20px;
   }
 
-  /* line 390, ../scss/modules/_responsive-nav.scss */
+  /* line 394, ../scss/modules/_responsive-nav.scss */
   .nav-collapse ul ul li:hover > ul,
   .nav-collapse ul ul li.focus > ul {
     top: 0;
@@ -2449,65 +2447,62 @@ footer[role="contentinfo"] .footer-content {
   Credit to W3C/WAI: https://www.w3.org/WAI/tutorials/carousels/ 
   Requires accessible-carousel.js
 */
-/* line 10, ../scss/modules/_carousel.scss */
+/* line 12, ../scss/modules/_carousel.scss */
 .carousel, .slide {
   padding: 0;
   margin: 0;
   overflow: hidden;
 }
 
-/* line 15, ../scss/modules/_carousel.scss */
+/* line 17, ../scss/modules/_carousel.scss */
 .carousel {
   position: relative;
 }
 
-/* line 18, ../scss/modules/_carousel.scss */
+/* line 20, ../scss/modules/_carousel.scss */
 .carousel ul {
   margin: 0;
   padding: 0;
 }
 
-/* line 22, ../scss/modules/_carousel.scss */
+/* line 24, ../scss/modules/_carousel.scss */
 .slide {
   display: table;
   background-position: center center;
   background-size: cover;
   position: relative;
   margin-bottom: 1em;
+  background-color: #303238;
+  color: #fafafa;
 }
 
-/* line 30, ../scss/modules/_carousel.scss */
+/* line 34, ../scss/modules/_carousel.scss */
 .slide-content {
   display: table-cell;
-  padding: 60px;
+  padding: 30px 60px;
   vertical-align: middle;
 }
 
-/* line 35, ../scss/modules/_carousel.scss */
+/* line 39, ../scss/modules/_carousel.scss */
 .slide-title {
-  font-size: 3em;
+  font-size: 2.2em;
+  line-height: 1;
   margin: 0;
 }
 
 /* 
   start animation-related styles when we know js is active 
 */
-/* line 43, ../scss/modules/_carousel.scss */
+/* line 48, ../scss/modules/_carousel.scss */
 .carousel.js {
-  height: 360px;
+  height: 380px;
   position: relative;
-  background-color: #303238;
-  color: #fafafa;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
-/* line 52, ../scss/modules/_carousel.scss */
-.carousel.js a, .carousel.js a:visited {
-  color: tomato;
-}
 
-/* line 57, ../scss/modules/_carousel.scss */
+/* line 56, ../scss/modules/_carousel.scss */
 .js .slide {
   display: table !important;
   visibility: hidden;
@@ -2521,35 +2516,35 @@ footer[role="contentinfo"] .footer-content {
   transition: left .6s ease-out;
 }
 
-/* line 72, ../scss/modules/_carousel.scss */
+/* line 71, ../scss/modules/_carousel.scss */
 .js .slide.current {
   visibility: visible;
   left: 0;
 }
 
-/* line 77, ../scss/modules/_carousel.scss */
+/* line 76, ../scss/modules/_carousel.scss */
 .js .slide.next {
   left: 100%;
 }
 
-/* line 81, ../scss/modules/_carousel.scss */
+/* line 80, ../scss/modules/_carousel.scss */
 .js .slide.prev {
   left: -100%;
 }
 
-/* line 85, ../scss/modules/_carousel.scss */
+/* line 84, ../scss/modules/_carousel.scss */
 .js .slide.next.in-transition,
 .js .slide.prev.in-transition {
   visibility: visible;
 }
 
-/* line 90, ../scss/modules/_carousel.scss */
+/* line 89, ../scss/modules/_carousel.scss */
 .slide.current {
   display: block;
   z-index: 210;
 }
 
-/* line 95, ../scss/modules/_carousel.scss */
+/* line 94, ../scss/modules/_carousel.scss */
 .btn-prev,
 .btn-next {
   position: absolute;
@@ -2563,7 +2558,7 @@ footer[role="contentinfo"] .footer-content {
   transition: padding .4s ease-out;
 }
 
-/* line 108, ../scss/modules/_carousel.scss */
+/* line 107, ../scss/modules/_carousel.scss */
 .btn-next:hover,
 .btn-next:focus,
 .btn-prev:hover,
@@ -2572,23 +2567,23 @@ footer[role="contentinfo"] .footer-content {
   padding-right: 15px;
 }
 
-/* line 116, ../scss/modules/_carousel.scss */
+/* line 115, ../scss/modules/_carousel.scss */
 .btn-prev {
   left: 0;
 }
 
-/* line 119, ../scss/modules/_carousel.scss */
+/* line 118, ../scss/modules/_carousel.scss */
 .btn-next {
   right: 0;
 }
 
-/* line 123, ../scss/modules/_carousel.scss */
+/* line 122, ../scss/modules/_carousel.scss */
 .btn-prev svg,
 .btn-next svg {
   width: 40px;
 }
 
-/* line 127, ../scss/modules/_carousel.scss */
+/* line 126, ../scss/modules/_carousel.scss */
 .btn-prev .nav-arrow,
 .btn-next .nav-arrow {
   fill: none;
@@ -2602,12 +2597,12 @@ footer[role="contentinfo"] .footer-content {
   set slidenav: true when initializing
   for bottom labels indicating current slide 
 */
-/* line 141, ../scss/modules/_carousel.scss */
+/* line 140, ../scss/modules/_carousel.scss */
 .carousel.with-slidenav {
   padding-bottom: 2em;
 }
 
-/* line 145, ../scss/modules/_carousel.scss */
+/* line 144, ../scss/modules/_carousel.scss */
 .slidenav {
   position: absolute;
   bottom: .25em;
@@ -2617,15 +2612,16 @@ footer[role="contentinfo"] .footer-content {
   z-index: 220;
 }
 
-/* line 154, ../scss/modules/_carousel.scss */
+/* line 153, ../scss/modules/_carousel.scss */
 .slidenav li {
   display: inline-block;
   margin: 0 0.5em;
 }
 
-/* line 158, ../scss/modules/_carousel.scss */
+/* line 157, ../scss/modules/_carousel.scss */
 .slidenav .animation-control {
-  float: left;
+  position: absolute;
+  left: 0;
 }
 /* line 161, ../scss/modules/_carousel.scss */
 .slidenav .animation-control button {
@@ -2670,6 +2666,11 @@ footer[role="contentinfo"] .footer-content {
   .carousel.js, .js .slide {
     height: 420px;
   }
+
+  /* line 200, ../scss/modules/_carousel.scss */
+  .slide-title {
+    font-size: 3em;
+  }
 }
 /* ------------------------------------------
   Calendar Date Icon
@@ -2690,6 +2691,8 @@ footer[role="contentinfo"] .footer-content {
 .vevent-card:visited {
   overflow: hidden;
   float: left;
+  display: inline-block;
+  width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   background-color: #fafafa;
   padding: 0.4em 0 0.6em;
@@ -2697,20 +2700,25 @@ footer[role="contentinfo"] .footer-content {
   -webkit-transiiton: background-color 300ms ease-in-out;
   transition: background-color 300ms ease-in-out;
 }
+/* line 31, ../scss/modules/_calendar-date-icon.scss */
+.vevent-card time,
+.vevent-card:visited time {
+  display: block;
+}
 
-/* line 29, ../scss/modules/_calendar-date-icon.scss */
+/* line 35, ../scss/modules/_calendar-date-icon.scss */
 .vevent-card:hover {
   background-color: #fafafa;
   text-decoration: none;
 }
 
-/* line 34, ../scss/modules/_calendar-date-icon.scss */
+/* line 40, ../scss/modules/_calendar-date-icon.scss */
 .dtstart {
   text-align: center;
   line-height: 1;
 }
 
-/* line 39, ../scss/modules/_calendar-date-icon.scss */
+/* line 45, ../scss/modules/_calendar-date-icon.scss */
 .dtstart .month,
 .dtstart .year {
   display: block;
@@ -2720,14 +2728,13 @@ footer[role="contentinfo"] .footer-content {
   font-family: verdana, sans-serif;
 }
 
-/* line 48, ../scss/modules/_calendar-date-icon.scss */
+/* line 54, ../scss/modules/_calendar-date-icon.scss */
 .dtstart .day {
   display: block;
-  font-size: 5em;
+  font-size: 4em;
   line-height: 0.9em;
   padding: 0.1em 0;
   letter-spacing: -0.02em;
-  width: 150px;
   color: #303238;
   font-family: impact, sans-serif;
   font-weight: bold;

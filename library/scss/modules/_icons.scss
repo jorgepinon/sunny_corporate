@@ -1,0 +1,26 @@
+//  icons
+//  ---------------------
+
+//  svg icons added to page html
+//  <svg class="icon--*">
+//    [svg code]
+//       or
+//    <use xlink:href="#icon--call" />
+//  </svg>
+
+.icon--phone,
+.icon--email,
+.icon--facebook,
+.icon--linkedin {
+	display: inline-block;
+	width: 40px;
+	stroke-miterlimit: 10;
+	stroke-linejoin: round;
+}
+.icon--phone {
+	fill: #222;
+}
+.icon--email {
+	fill: none;
+	stroke: #222;
+}
