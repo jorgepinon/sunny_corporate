@@ -124,43 +124,30 @@ function bones_scripts_and_styles() {
 
   if (!is_admin()) {
 
-		// modernizr (without media query polyfill)
-		wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
-
-		wp_register_script( 'accessible-carousel', get_stylesheet_directory_uri() . '/library/src/vendor/accessible_carousel.js', array(), '', false );
-
-		wp_register_script( 'responsive-nav', get_stylesheet_directory_uri() . '/library/src/vendor/responsive-nav.js', array(), '', false );
-
 		// register main stylesheet
 		wp_register_style( 'bones-stylesheet', get_stylesheet_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
 		// ie-only style sheet
 		wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
 
-    // comment reply script for threaded comments
-    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-		  wp_enqueue_script( 'comment-reply' );
-    }
+		// comment reply script for threaded comments
+		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+			wp_enqueue_script( 'comment-reply' );
+		}
 
-		//adding scripts file in the footer
-		// wp_register_script( 'bones-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
-
-		// adding scripts but without jquery for now
-		wp_register_script( 'main-js', get_stylesheet_directory_uri() . '/library/js/main.js', array(), '', true );
+		// vendor.bundle.js is concatenated by npm
+		wp_register_script( 'vendor-bundle-js', get_stylesheet_directory_uri() . '/library/js/vendor.bundle.js', array(), '', true );
+		// bundle.js is created by webpack
+		wp_register_script( 'bundle-js', get_stylesheet_directory_uri() . '/library/js/bundle.js', array('vendor-bundle-js'), '', true );
 
 		// enqueue styles and scripts
-		wp_enqueue_script( 'bones-modernizr' );
-		wp_enqueue_script( 'accessible-carousel' );
-		wp_enqueue_script( 'responsive-nav' );
 		wp_enqueue_style( 'bones-stylesheet' );
 		wp_enqueue_style( 'bones-ie-only' );
 
 		$wp_styles->add_data( 'bones-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-		/*
-		for jQuery try using the cdn
-		*/
-		wp_enqueue_script( 'main-js' );
+		wp_enqueue_script( 'vendor-bundle-js' );
+		wp_enqueue_script( 'bundle-js' );
 
 	}
 }

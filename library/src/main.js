@@ -1,3 +1,9 @@
+// import myCarousel from 'accessible_carousel';
+// import 'script-loader!responsive-nav';
+
+let message = 'es6 webpack!'; // so fancy  
+console.log(message);
+
 // Init responsive nav
 var customToggle = document.getElementById('nav-toggle');
 var navigation = responsiveNav("#main-menu", {
